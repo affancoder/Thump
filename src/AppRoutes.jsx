@@ -5,6 +5,7 @@ import AdminLayout from "./components/layout/AdminLayout";
 import CustomerList from "./pages/CustomerList";
 import AddProducts from "./pages/AddProducts";
 import ViewProducts from "./pages/ViewProducts";
+import ManageStocks from "./pages/ManageStocks";
 
 function AppRoutes() {
   return (
@@ -45,6 +46,8 @@ function AppRoutes() {
             path="view-products"
             element={<ViewProducts />}
           />
+
+          <Route path="manage-stocks" element={<ManageStocks />} />
 
         </Route>
 

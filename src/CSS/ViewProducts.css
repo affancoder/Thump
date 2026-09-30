@@ -71,7 +71,7 @@
   color: #ffffff;
 
   font-family: inherit;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
@@ -133,7 +133,7 @@
   color: #4d565b;
 
   font-family: inherit;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .view-products-search input::placeholder {
@@ -143,7 +143,7 @@
 .view-products-count {
   color: #8c969a;
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 
@@ -242,7 +242,7 @@
 
   border-radius: 20px;
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 650;
 }
 
@@ -270,7 +270,7 @@
 
   color: #30383c;
 
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 650;
 
   white-space: nowrap;
@@ -303,14 +303,14 @@
 .view-product-meta span {
   color: #a0a9ad;
 
-  font-size: 7px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .view-product-meta strong {
   color: #596368;
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 600;
 
   white-space: nowrap;
@@ -332,7 +332,7 @@
 
   color: #078477;
 
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -363,7 +363,7 @@
 
   font-family: inherit;
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 600;
 
   cursor: pointer;

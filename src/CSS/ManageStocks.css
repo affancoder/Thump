@@ -1,0 +1,699 @@
+/* =========================================
+   PAGE
+========================================= */
+
+.manage-stocks-page {
+  width: 100%;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.manage-stocks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.manage-stocks-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 8px;
+}
+
+.manage-stocks-heading-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #078477;
+}
+
+.manage-stocks-heading h1 {
+  margin: 0;
+
+  color: #292929;
+
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.manage-stocks-heading p {
+  margin: 3px 0 0;
+
+  color: #a0a0a0;
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.stock-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 13px;
+}
+
+.stock-summary-card {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 13px;
+
+  border: 1px solid #e7eaec;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 3px 12px rgba(35, 48, 55, 0.04);
+}
+
+.stock-summary-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.stock-summary-info span {
+  color: #000;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stock-summary-info strong {
+  color: #30383c;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.stock-summary-icon {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #eef8f6;
+
+  color: #078477;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.manage-stocks-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 13px;
+}
+
+.stock-action {
+  height: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 0 11px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.stock-action.sheet {
+  border: 1px solid #dce9e7;
+
+  background: #f3faf8;
+
+  color: #078477;
+}
+
+.stock-action.export {
+  border: 1px solid #e0e5e7;
+
+  background: #ffffff;
+
+  color: #596368;
+}
+
+.stock-action.restock {
+  border: 1px solid #f0dddd;
+
+  background: #fff7f7;
+
+  color: #b85c5c;
+}
+
+.stock-action.sheet:hover {
+  background: #e7f5f1;
+}
+
+.stock-action.export:hover {
+  background: #f5f7f8;
+}
+
+.stock-action.restock:hover {
+  background: #fdeeee;
+}
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.manage-stocks-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+.manage-stocks-search {
+  width: 320px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0 10px;
+
+  border: 1px solid #e4e8ea;
+  border-radius: 8px;
+
+  background: #f7f9fa;
+
+  color: #8d9ba3;
+}
+
+.manage-stocks-search:focus-within {
+  border-color: #078c7d;
+
+  background: #ffffff;
+}
+
+.manage-stocks-search input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #4d565b;
+
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.manage-stocks-search input::placeholder {
+  color: #9caab1;
+}
+
+
+/* =========================================
+   FILTERS
+========================================= */
+
+.manage-stocks-filters {
+  display: flex;
+  gap: 7px;
+}
+
+.manage-stocks-filters select {
+  height: 35px;
+
+  min-width: 125px;
+
+  padding: 0 9px;
+
+  border: 1px solid #e3e7e8;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #667176;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.manage-stocks-filters select:focus {
+  border-color: #078477;
+}
+
+
+/* =========================================
+   TABLE WRAPPER
+========================================= */
+
+.manage-stocks-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #e6eaeb;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 15px rgba(35, 48, 55, 0.045);
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.manage-stocks-table {
+  width: 100%;
+
+  min-width: 720px;
+
+  border-collapse: collapse;
+}
+
+.manage-stocks-table th {
+  height: 39px;
+
+  padding: 0 12px;
+
+  border-bottom: 1px solid #e8ebec;
+
+  background: #f8fafb;
+
+  color: #899398;
+
+  text-align: left;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.manage-stocks-table td {
+  height: 54px;
+
+  padding: 7px 12px;
+
+  border-bottom: 1px solid #f0f2f3;
+
+  color: #596368;
+
+  font-size: 16px;
+}
+
+.manage-stocks-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.manage-stocks-table tbody tr:hover {
+  background: #fafcfc;
+}
+
+
+/* =========================================
+   INDEX
+========================================= */
+
+.stock-index {
+  width: 40px;
+
+  color: #a1aaae !important;
+
+  font-size: 14px !important;
+}
+
+
+/* =========================================
+   PRODUCT
+========================================= */
+
+.stock-product {
+  min-width: 210px;
+}
+
+.stock-product-name {
+  color: #343d41;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.stock-category {
+  display: inline-flex;
+
+  padding: 5px 7px;
+
+  border-radius: 5px;
+
+  background: #f1f5f5;
+
+  color: #6e797d;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   COMPANY
+========================================= */
+
+.stock-company {
+  color: #697479 !important;
+
+  font-weight: 550;
+}
+
+
+/* =========================================
+   STOCK COUNTER
+========================================= */
+
+.stock-counter {
+  width: 94px;
+  height: 27px;
+
+  display: grid;
+
+  grid-template-columns:
+    27px 1fr 27px;
+
+  overflow: hidden;
+
+  border: 1px solid #e0e5e6;
+  border-radius: 6px;
+
+  background: #f8fafb;
+}
+
+.stock-counter button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  background: #f1f5f5;
+
+  color: #078477;
+
+  cursor: pointer;
+}
+
+.stock-counter button:hover:not(:disabled) {
+  background: #e4f2ef;
+}
+
+.stock-counter button:disabled {
+  color: #bcc3c5;
+
+  cursor: not-allowed;
+}
+
+.stock-counter input {
+  width: 100%;
+
+  border: none;
+  border-left: 1px solid #e0e5e6;
+  border-right: 1px solid #e0e5e6;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #404a4e;
+
+  text-align: center;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  appearance: textfield;
+}
+
+.stock-counter input::-webkit-inner-spin-button,
+.stock-counter input::-webkit-outer-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.stock-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 5px 8px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+}
+
+.stock-status.in-stock {
+  background: #e8f7f3;
+
+  color: #087b69;
+}
+
+.stock-status.in-stock .status-dot {
+  background: #078477;
+}
+
+.stock-status.low-stock {
+  background: #fff5df;
+
+  color: #a8731f;
+}
+
+.stock-status.low-stock .status-dot {
+  background: #d49b3d;
+}
+
+.stock-status.out-of-stock {
+  background: #fff0f0;
+
+  color: #b85c5c;
+}
+
+.stock-status.out-of-stock .status-dot {
+  background: #b85c5c;
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.manage-stocks-empty {
+  min-height: 230px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #a1aaae;
+
+  text-align: center;
+}
+
+.manage-stocks-empty h3 {
+  margin: 9px 0 4px;
+
+  color: #626b6f;
+
+  font-size: 18px;
+}
+
+.manage-stocks-empty p {
+  margin: 0;
+
+  font-size: 8px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .stock-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .manage-stocks-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .manage-stocks-search {
+    width: 100%;
+  }
+
+  .manage-stocks-filters {
+    width: 100%;
+  }
+
+  .manage-stocks-filters select {
+    flex: 1;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .manage-stocks-header {
+    margin-bottom: 12px;
+  }
+
+  .manage-stocks-heading h1 {
+    font-size: 14px;
+  }
+
+  .manage-stocks-heading p {
+    font-size: 8px;
+  }
+
+  .stock-summary-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .stock-summary-card {
+    min-height: 62px;
+
+    padding: 9px;
+  }
+
+  .stock-summary-info span {
+    font-size: 7px;
+  }
+
+  .stock-summary-info strong {
+    font-size: 15px;
+  }
+
+  .stock-summary-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .manage-stocks-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+  }
+
+  .stock-action {
+    width: 100%;
+
+    padding: 0 7px;
+  }
+
+  .stock-action.restock {
+    grid-column: 1 / -1;
+  }
+
+  .manage-stocks-filters {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .manage-stocks-filters select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .manage-stocks-table-wrapper {
+    border-radius: 9px;
+  }
+
+  .manage-stocks-table {
+    min-width: 680px;
+  }
+}
