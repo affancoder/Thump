@@ -84,7 +84,7 @@
 
   font-family: inherit;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 550;
 
   cursor: pointer;
@@ -142,14 +142,14 @@
 .purchase-return-summary-info span {
   color: #858585;
 
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .purchase-return-summary-info strong {
   color: #202020;
 
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 650;
 
   line-height: 1;
@@ -309,7 +309,7 @@
 
   color: #777777;
 
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 650;
 
   text-transform: uppercase;
@@ -328,7 +328,7 @@
 
   color: #444444;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
 
   white-space: nowrap;
@@ -350,7 +350,7 @@
 .purchase-return-id {
   color: #078477;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
 }
 
@@ -369,7 +369,7 @@
 .purchase-return-supplier strong {
   color: #303030;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -381,7 +381,7 @@
 .purchase-return-product {
   color: #555555;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -393,7 +393,7 @@
 .purchase-return-quantity {
   color: #333333;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -405,7 +405,7 @@
 .purchase-return-reason {
   color: #777777;
 
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 450;
 }
 
@@ -417,7 +417,7 @@
 .purchase-return-amount {
   color: #222222;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
 }
 
@@ -437,7 +437,7 @@
 
   font-family: inherit;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 550;
 
   outline: none;
@@ -485,8 +485,8 @@
 
 .purchase-return-date {
   color: #777777;
-
-  font-size: 11px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 

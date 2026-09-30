@@ -10,7 +10,6 @@ import Orders from "./pages/Orders";
 import Categories from "./pages/Categories";
 import PurchaseReturns from "./pages/PurchaseReturns";
 
-
 function AppRoutes() {
   return (
     <BrowserRouter>
@@ -42,14 +41,11 @@ function AppRoutes() {
           <Route path="orders" element={<Orders />} />
 
           {/* Categories */}
-          <Route path="categories" element={<Categories/>}/>
-        </Route>
+          <Route path="categories" element={<Categories />} />
 
           {/* Purchase Return */}
-          <Route path="purchase-returns" element={<PurchaseReturns/>}/>
-
-
-
+          <Route path="purchase-returns" element={<PurchaseReturns />} />
+        </Route>
 
         {/* =========================================
             INVALID ROUTES
