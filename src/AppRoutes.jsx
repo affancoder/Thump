@@ -10,6 +10,7 @@ import Orders from "./pages/Orders";
 import Categories from "./pages/Categories";
 import PurchaseReturns from "./pages/PurchaseReturns";
 import Complaints from "./pages/Complaints";
+import Settings from "./pages/Settings";
 
 function AppRoutes() {
   return (
@@ -50,6 +51,9 @@ function AppRoutes() {
           {/* Complaints */}
           <Route path="complaints" element={<Complaints/>}/>
 
+          {/* Settings */}
+          <Route path="settings" element={<Settings/>}/>
+          
         </Route>
 
         {/* =========================================
