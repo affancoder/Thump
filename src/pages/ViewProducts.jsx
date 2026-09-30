@@ -6,6 +6,8 @@ import {
   Power,
   Plus,
   Package,
+  X,
+  ImagePlus,
 } from "lucide-react";
 
 import "../CSS/ViewProducts.css";
@@ -78,7 +80,7 @@ const sampleProducts = [
     company: "boAt",
     price: 299,
     image:
-      "https://imgs.search.brave.com/bXP40R0bJI-72ZRR5ahxlUWdQ6gDWhYjpQZk2NnvXgo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yb2Nz/dG9yLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNS8wOC9Z/MTBBMjQ0LUIxLVVT/Qi1DJUMyJUFFLXRv/LTMuNW1tLUF1ZGlv/LUFkYXB0ZXIxLmpw/Zw",
+      "https://imgs.search.brave.com/bXP40R0bJI-72ZRR5ahxlUWdQ6gDWhYjpQZk2NnvXgo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yb2Nz/dG9yLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNS8wOC9ZMTBBMjQ0LUIxLVVTQi1DJUMyJUFFLXRvLTMuNW1tLUF1ZGlvLUFkYXB0ZXIxLmpwZw",
     active: true,
   },
   {
@@ -107,6 +109,20 @@ function ViewProducts() {
   const [products, setProducts] = useState(sampleProducts);
   const [search, setSearch] = useState("");
 
+  const [showAddModal, setShowAddModal] = useState(false);
+
+  const [newProduct, setNewProduct] = useState({
+    title: "",
+    category: "",
+    company: "",
+    price: "",
+    image: "",
+  });
+
+  /* =========================================
+     SEARCH
+  ========================================= */
+
   const filteredProducts = products.filter((product) => {
     const value = search.toLowerCase().trim();
 
@@ -120,6 +136,10 @@ function ViewProducts() {
       product.company.toLowerCase().includes(value)
     );
   });
+
+  /* =========================================
+     DELETE PRODUCT
+  ========================================= */
 
   const handleDelete = (id) => {
     const confirmed = window.confirm(
@@ -137,6 +157,10 @@ function ViewProducts() {
     );
   };
 
+  /* =========================================
+     TOGGLE ACTIVE
+  ========================================= */
+
   const handleToggleActive = (id) => {
     setProducts((previousProducts) =>
       previousProducts.map((product) =>
@@ -150,12 +174,116 @@ function ViewProducts() {
     );
   };
 
+  /* =========================================
+     EDIT PRODUCT
+  ========================================= */
+
   const handleEdit = (product) => {
     console.log("Edit product:", product);
   };
 
+  /* =========================================
+     OPEN ADD PRODUCT MODAL
+  ========================================= */
+
   const handleAddProduct = () => {
-    console.log("Add product");
+    setNewProduct({
+      title: "",
+      category: "",
+      company: "",
+      price: "",
+      image: "",
+    });
+
+    setShowAddModal(true);
+  };
+
+  /* =========================================
+     CLOSE ADD PRODUCT MODAL
+  ========================================= */
+
+  const handleCloseAddModal = () => {
+    setShowAddModal(false);
+  };
+
+  /* =========================================
+     NEW PRODUCT INPUT
+  ========================================= */
+
+  const handleNewProductChange = (event) => {
+    const { name, value } = event.target;
+
+    setNewProduct((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+
+  /* =========================================
+     CREATE PRODUCT
+  ========================================= */
+
+  const handleCreateProduct = (event) => {
+    event.preventDefault();
+
+    if (
+      !newProduct.title.trim() ||
+      !newProduct.category.trim() ||
+      !newProduct.company.trim() ||
+      !newProduct.price
+    ) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    const nextId =
+      products.length > 0
+        ? Math.max(
+            ...products.map((product) => product.id)
+          ) + 1
+        : 1;
+
+    const product = {
+      id: nextId,
+
+      title: newProduct.title.trim(),
+
+      category: newProduct.category.trim(),
+
+      company: newProduct.company.trim(),
+
+      price: Number(newProduct.price),
+
+      image:
+        newProduct.image.trim() ||
+        "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&w=800&q=80",
+
+      active: true,
+    };
+
+    setProducts((previousProducts) => [
+      product,
+      ...previousProducts,
+    ]);
+
+    setShowAddModal(false);
+
+    setNewProduct({
+      title: "",
+      category: "",
+      company: "",
+      price: "",
+      image: "",
+    });
+  };
+
+  /* =========================================
+     IMAGE ERROR
+  ========================================= */
+
+  const handleImageError = (event) => {
+    event.currentTarget.src =
+      "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&w=800&q=80";
   };
 
   return (
@@ -245,7 +373,9 @@ function ViewProducts() {
             key={product.id}
           >
 
-            {/* Product Image */}
+            {/* =====================================
+                PRODUCT IMAGE
+            ===================================== */}
 
             <div className="view-product-image-container">
 
@@ -253,6 +383,7 @@ function ViewProducts() {
                 src={product.image}
                 alt={product.title}
                 className="view-product-image"
+                onError={handleImageError}
               />
 
               <span
@@ -270,7 +401,9 @@ function ViewProducts() {
             </div>
 
 
-            {/* Product Information */}
+            {/* =====================================
+                PRODUCT INFORMATION
+            ===================================== */}
 
             <div className="view-product-content">
 
@@ -278,17 +411,25 @@ function ViewProducts() {
                 {product.title}
               </h2>
 
+
               <div className="view-product-meta">
 
                 <div>
-                  <span>Category</span>
+                  <span>
+                    Category
+                  </span>
+
                   <strong>
                     {product.category}
                   </strong>
                 </div>
 
+
                 <div>
-                  <span>Company</span>
+                  <span>
+                    Company
+                  </span>
+
                   <strong>
                     {product.company}
                   </strong>
@@ -297,16 +438,25 @@ function ViewProducts() {
               </div>
 
 
-              {/* Price */}
+              {/* ===================================
+                  PRICE
+              =================================== */}
 
               <div className="view-product-price">
-                ₹{product.price.toLocaleString("en-IN")}
+                ₹
+                {product.price.toLocaleString(
+                  "en-IN"
+                )}
               </div>
 
 
-              {/* Actions */}
+              {/* ===================================
+                  ACTIONS
+              =================================== */}
 
               <div className="view-product-actions">
+
+                {/* EDIT */}
 
                 <button
                   type="button"
@@ -320,9 +470,13 @@ function ViewProducts() {
                     strokeWidth={1.8}
                   />
 
-                  <span>Edit</span>
+                  <span>
+                    Edit
+                  </span>
                 </button>
 
+
+                {/* DELETE */}
 
                 <button
                   type="button"
@@ -336,9 +490,13 @@ function ViewProducts() {
                     strokeWidth={1.8}
                   />
 
-                  <span>Delete</span>
+                  <span>
+                    Delete
+                  </span>
                 </button>
 
+
+                {/* ACTIVE / OFF */}
 
                 <button
                   type="button"
@@ -348,7 +506,9 @@ function ViewProducts() {
                       : "inactive"
                   }`}
                   onClick={() =>
-                    handleToggleActive(product.id)
+                    handleToggleActive(
+                      product.id
+                    )
                   }
                 >
                   <Power
@@ -392,6 +552,285 @@ function ViewProducts() {
           <p>
             Try searching for another product.
           </p>
+
+        </div>
+      )}
+
+
+      {/* =========================================
+          ADD PRODUCT MODAL
+      ========================================= */}
+
+      {showAddModal && (
+        <div
+          className="view-product-modal-overlay"
+          onMouseDown={(event) => {
+            if (
+              event.target ===
+              event.currentTarget
+            ) {
+              handleCloseAddModal();
+            }
+          }}
+        >
+
+          <div className="view-product-modal">
+
+            {/* ===================================
+                MODAL HEADER
+            =================================== */}
+
+            <div className="view-product-modal-header">
+
+              <div className="view-product-modal-title">
+
+                <div className="view-product-modal-icon">
+                  <Package
+                    size={18}
+                    strokeWidth={1.8}
+                  />
+                </div>
+
+                <div>
+                  <h2>
+                    Add New Product
+                  </h2>
+
+                  <p>
+                    Create a new product listing.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <button
+                type="button"
+                className="view-product-modal-close"
+                onClick={
+                  handleCloseAddModal
+                }
+                aria-label="Close"
+              >
+                <X
+                  size={18}
+                  strokeWidth={1.8}
+                />
+              </button>
+
+            </div>
+
+
+            {/* ===================================
+                FORM
+            =================================== */}
+
+            <form
+              className="view-product-modal-form"
+              onSubmit={handleCreateProduct}
+            >
+
+              {/* PRODUCT TITLE */}
+
+              <div className="view-product-form-group">
+
+                <label>
+                  Product Title
+                </label>
+
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Enter product title"
+                  value={newProduct.title}
+                  onChange={
+                    handleNewProductChange
+                  }
+                  autoFocus
+                />
+
+              </div>
+
+
+              {/* CATEGORY + COMPANY */}
+
+              <div className="view-product-form-row">
+
+                <div className="view-product-form-group">
+
+                  <label>
+                    Product Category
+                  </label>
+
+                  <input
+                    type="text"
+                    name="category"
+                    placeholder="e.g. Audio"
+                    value={
+                      newProduct.category
+                    }
+                    onChange={
+                      handleNewProductChange
+                    }
+                  />
+
+                </div>
+
+
+                <div className="view-product-form-group">
+
+                  <label>
+                    Company
+                  </label>
+
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="e.g. boAt"
+                    value={
+                      newProduct.company
+                    }
+                    onChange={
+                      handleNewProductChange
+                    }
+                  />
+
+                </div>
+
+              </div>
+
+
+              {/* PRICE */}
+
+              <div className="view-product-form-group">
+
+                <label>
+                  Price
+                </label>
+
+                <div className="view-product-price-input">
+
+                  <span>
+                    ₹
+                  </span>
+
+                  <input
+                    type="number"
+                    name="price"
+                    min="0"
+                    step="1"
+                    placeholder="Enter price"
+                    value={
+                      newProduct.price
+                    }
+                    onChange={
+                      handleNewProductChange
+                    }
+                  />
+
+                </div>
+
+              </div>
+
+
+              {/* IMAGE URL */}
+
+              <div className="view-product-form-group">
+
+                <label>
+                  Product Image URL
+
+                  <span className="optional">
+                    Optional
+                  </span>
+                </label>
+
+                <div className="view-product-image-input">
+
+                  <ImagePlus
+                    size={15}
+                    strokeWidth={1.7}
+                  />
+
+                  <input
+                    type="url"
+                    name="image"
+                    placeholder="https://example.com/product-image.jpg"
+                    value={
+                      newProduct.image
+                    }
+                    onChange={
+                      handleNewProductChange
+                    }
+                  />
+
+                </div>
+
+                <small>
+                  If no image URL is provided,
+                  a default product image will
+                  be used.
+                </small>
+
+              </div>
+
+
+              {/* IMAGE PREVIEW */}
+
+              {newProduct.image.trim() && (
+                <div className="view-product-modal-preview">
+
+                  <span>
+                    Image Preview
+                  </span>
+
+                  <img
+                    src={newProduct.image}
+                    alt="Product preview"
+                    onError={(event) => {
+                      event.currentTarget.style.display =
+                        "none";
+                    }}
+                  />
+
+                </div>
+              )}
+
+
+              {/* =================================
+                  MODAL ACTIONS
+              ================================= */}
+
+              <div className="view-product-modal-actions">
+
+                <button
+                  type="button"
+                  className="view-product-modal-cancel"
+                  onClick={
+                    handleCloseAddModal
+                  }
+                >
+                  Cancel
+                </button>
+
+
+                <button
+                  type="submit"
+                  className="view-product-modal-create"
+                >
+                  <Plus
+                    size={15}
+                    strokeWidth={2}
+                  />
+
+                  Create Product
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
 
         </div>
       )}
