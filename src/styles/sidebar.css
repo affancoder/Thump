@@ -1,0 +1,322 @@
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 245px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #078477;
+  color: #ffffff;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.sidebar-brand {
+  min-height: 92px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 16px 18px;
+}
+
+.sidebar-logo {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.sidebar-admin-title {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.8px;
+}
+
+.sidebar-company-name {
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.sidebar-divider {
+  width: calc(100% - 20px);
+
+  height: 1px;
+
+  margin: 0 10px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.sidebar-navigation {
+  flex: 1;
+
+  padding: 10px 10px;
+
+  overflow-y: auto;
+}
+
+
+/* Hide scrollbar */
+
+.sidebar-navigation::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar-navigation {
+  scrollbar-width: none;
+}
+
+
+/* =========================================
+   NAV ITEM
+========================================= */
+
+.sidebar-nav-item {
+  position: relative;
+
+  width: 100%;
+  min-height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 12px;
+
+  margin-bottom: 5px;
+
+  border-radius: 11px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 14px;
+  font-weight: 400;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.sidebar-nav-icon {
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.sidebar-nav-label {
+  flex: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.sidebar-nav-arrow {
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+.sidebar-nav-item:hover .sidebar-nav-icon {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   ACTIVE ITEM
+========================================= */
+
+.sidebar-nav-item.active {
+  background: #f4f4f4;
+
+  color: #078477;
+
+  font-weight: 500;
+}
+
+.sidebar-nav-item.active .sidebar-nav-icon {
+  color: #078477;
+}
+
+.sidebar-nav-item.active .sidebar-nav-arrow {
+  color: #078477;
+}
+
+
+/* =========================================
+   LOGOUT AREA
+========================================= */
+
+.sidebar-logout-container {
+  flex-shrink: 0;
+
+  padding-bottom: 12px;
+}
+
+.sidebar-logout {
+  width: calc(100% - 20px);
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 6px 10px 0;
+
+  padding: 0 14px;
+
+  border-radius: 10px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 13px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.sidebar-logout:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 999;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  border: none;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 768px) {
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .sidebar {
+    width: 245px;
+
+    transform: translateX(-100%);
+
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .sidebar.sidebar-mobile-open {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,167 @@
+/* ========================================
+   ROOT
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f3f5f7;
+}
+
+
+/* ========================================
+   APP
+======================================== */
+
+.admin-layout {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f3f5f7;
+}
+
+
+/* ========================================
+   RIGHT SIDE OF SIDEBAR
+======================================== */
+
+.admin-main {
+  width: calc(100% - 245px);
+  min-width: 0;
+  min-height: 100vh;
+
+  margin-left: 245px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #f3f5f7;
+}
+
+
+/* ========================================
+   HEADER
+   Your existing header styling stays here
+======================================== */
+
+.admin-header {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   BODY / ROUTED PAGE
+======================================== */
+
+.admin-content {
+  width: 100%;
+  min-width: 0;
+
+  flex: 1 1 auto;
+
+  margin: 0;
+  padding: 0;
+
+  background: #f3f5f7;
+
+  overflow-x: auto;
+}
+
+
+/* ========================================
+   MOBILE OVERLAY
+======================================== */
+
+.sidebar-overlay {
+  display: none;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+
+  .admin-main {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 767px) {
+
+  .admin-main {
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+
+    margin-left: 0;
+  }
+
+  .admin-content {
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: rgba(8, 34, 31, 0.42);
+
+    backdrop-filter: blur(2px);
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 420px) {
+
+  .admin-main {
+    width: 100%;
+  }
+
+  .admin-content {
+    width: 100%;
+  }
+
+}

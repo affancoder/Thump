@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background Container -->
+  <rect width="512" height="512" fill="#078d7e" />
+  
+  <!-- Rounded Inner Card -->
+  <rect x="32" y="32" width="448" height="448" rx="96" fill="#58c4b6" />
+
+  <!-- Main Wordmark: THUMP -->
+  <g fill="#000000">
+    <!-- T -->
+    <path d="M 52 215 H 100 V 238 H 84 V 300 H 68 V 238 H 52 Z" />
+    
+    <!-- h (Tall ascender) -->
+    <path d="M 106 170 H 124 V 300 H 106 Z M 124 240 C 130 228 142 222 154 222 C 168 222 176 230 176 246 V 300 H 158 V 250 C 158 242 153 238 146 238 C 138 238 124 244 124 256 Z" />
+    
+    <!-- u -->
+    <path d="M 188 225 H 206 V 275 C 206 283 211 286 218 286 C 226 286 238 280 238 268 V 225 H 256 V 300 H 238 V 288 C 232 297 221 302 210 302 C 194 302 188 291 188 275 Z" />
+    
+    <!-- m -->
+    <path d="M 268 225 H 286 V 237 C 292 228 300 222 310 222 C 320 222 327 228 331 237 C 337 228 346 222 356 222 C 368 222 376 230 376 246 V 300 H 358 V 250 C 358 242 354 238 348 238 C 341 238 331 245 331 258 V 300 H 313 V 250 C 313 242 309 238 303 238 C 296 238 286 245 286 258 V 300 H 268 Z" />
+    
+    <!-- Corrected Lowercase 'p' (Stem on Left at X=388, Loop extending Right to X=438) -->
+    <path d="M 388 225 H 406 V 238 C 412 228 422 222 434 222 C 452 222 464 238 464 262 C 464 286 452 302 434 302 C 422 302 412 296 406 286 V 338 H 388 Z M 406 262 C 406 276 414 286 425 286 C 438 286 446 276 446 262 C 446 248 438 238 425 238 C 414 238 406 248 406 262 Z" />
+  </g>
+
+  <!-- Subtitle: Beyond Limits -->
+  <text x="256" y="342" 
+        text-anchor="middle" 
+        fill="#000000" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-weight="800" 
+        font-size="24" 
+        letter-spacing="2">
+    Beyond Limits
+  </text>
+</svg>
