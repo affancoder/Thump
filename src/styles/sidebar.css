@@ -221,10 +221,14 @@
   color: #078477;
 }
 
-.sidebar-nav-item.active .sidebar-nav-arrow {
+.sidebar-nav-arrow{
   color: #078477;
 }
 
+
+.sidebar-nav-item.active .sidebar-nav-arrow {
+  color: #078477;
+}
 
 /* =========================================
    LOGOUT AREA

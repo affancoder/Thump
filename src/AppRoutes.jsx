@@ -9,6 +9,7 @@ import ManageStocks from "./pages/ManageStocks";
 import Orders from "./pages/Orders";
 import Categories from "./pages/Categories";
 import PurchaseReturns from "./pages/PurchaseReturns";
+import Complaints from "./pages/Complaints";
 
 function AppRoutes() {
   return (
@@ -45,6 +46,10 @@ function AppRoutes() {
 
           {/* Purchase Return */}
           <Route path="purchase-returns" element={<PurchaseReturns />} />
+
+          {/* Complaints */}
+          <Route path="complaints" element={<Complaints/>}/>
+
         </Route>
 
         {/* =========================================
