@@ -15,22 +15,37 @@ function Navbar({ setMobileOpen }) {
         <Menu size={22} />
       </button>
 
-      {/* Right-side user section */}
-      <div className="navbar-user">
-        <div className="navbar-user-details">
-          <span className="navbar-user-name">
-            JholeSalers
-          </span>
+      <div className="navbar">
+  {/* Left-side title */}
+  <div className="navbar-left">
+    <div className="navbar-left-title">
+      Admin Dashboard
+    </div>
 
-          <span className="navbar-user-email">
-            tester@gmail.com
-          </span>
-        </div>
+    <div className="navbar-left-subtitle">
+      Thump Beyond Limits
+    </div>
+  </div>
 
-        <div className="navbar-user-avatar">
-          J
-        </div>
-      </div>
+  {/* Right-side user section */}
+  <div className="navbar-user">
+    <div className="navbar-user-details">
+      <span className="navbar-user-name">
+        JholeSalers
+      </span>
+
+      <span className="navbar-user-email">
+        tester@gmail.com
+      </span>
+    </div>
+
+    <div className="navbar-user-avatar">
+      J
+    </div>
+  </div>
+</div>
+
+
     </header>
   );
 }

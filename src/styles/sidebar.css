@@ -263,8 +263,14 @@
     color 0.18s ease;
 }
 
-.sidebar-logout:hover {
+.sidebar-logout {
   background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+.sidebar-logout:hover {
+  background: rgba(23, 223, 123, 0.555);
 
   color: #ffffff;
 }
