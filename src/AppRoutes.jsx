@@ -1,36 +1,68 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import AdminLayout from "./components/layout/AdminLayout";
+
 import CustomerList from "./pages/CustomerList";
 import AddProducts from "./pages/AddProducts";
+import ViewProducts from "./pages/ViewProducts";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+
+        {/* =========================================
+            ADMIN
+        ========================================= */}
+
         <Route path="/admin" element={<AdminLayout />}>
+
+          {/* /admin → /admin/customer-list */}
           <Route
             index
-            element={<Navigate to="/admin/customer-list" replace />}
+            element={
+              <Navigate
+                to="/admin/customer-list"
+                replace
+              />
+            }
           />
 
-          <Route path="customer-list" element={<CustomerList />} />
+          {/* Customer List */}
+          <Route
+            path="customer-list"
+            element={<CustomerList />}
+          />
+
+          {/* Add Products */}
+          <Route
+            path="add-products"
+            element={<AddProducts />}
+          />
+
+          {/* View Products */}
+          <Route
+            path="view-products"
+            element={<ViewProducts />}
+          />
+
         </Route>
+
+
+        {/* =========================================
+            INVALID ROUTES
+        ========================================= */}
 
         <Route
           path="*"
-          element={<Navigate to="/admin/customer-list" replace />}
+          element={
+            <Navigate
+              to="/admin/customer-list"
+              replace
+            />
+          }
         />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route
-            index
-            element={<Navigate to="/admin/customer-list" replace />}
-          />
 
-          <Route path="customer-list" element={<CustomerList />} />
-
-          <Route path="add-products" element={<AddProducts />} />
-        </Route>
       </Routes>
     </BrowserRouter>
   );
